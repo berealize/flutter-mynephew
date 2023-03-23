@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mynephew/mainpage.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -7,12 +11,28 @@ class LandingPage extends StatefulWidget {
 
 class _LangingPageState extends State<LandingPage>{
   @override
+  void initState() {
+    Timer(const Duration(seconds: 2), () {
+      Get.offAll(MainPage());
+    });
+
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold (
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Image.asset('image/photo.jpg', fit: BoxFit.cover),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset('image/landing.png', /*fit: BoxFit.fitWidth*/),
+          ),
+          const CircularProgressIndicator(),
+        ],
       ),
     );
   }
