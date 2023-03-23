@@ -12,7 +12,7 @@ class LandingPage extends StatefulWidget {
 class _LangingPageState extends State<LandingPage>{
   @override
   void initState() {
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 1), () {
       Get.offAll(MainPage());
     });
 
