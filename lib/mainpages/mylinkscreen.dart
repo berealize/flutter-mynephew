@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyLinkScreen extends StatefulWidget {
+  const MyLinkScreen({super.key});
+
   @override
   _MyLinkScreenState createState() => _MyLinkScreenState();
 }

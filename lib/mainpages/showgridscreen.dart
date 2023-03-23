@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ShowGridScreen extends StatefulWidget {
+  const ShowGridScreen({super.key});
+
   @override
   _ShowGridScreenState createState() => _ShowGridScreenState();
 }

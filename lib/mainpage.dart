@@ -5,6 +5,8 @@ import 'package:mynephew/mainpages/myscreen.dart';
 import 'package:mynephew/mainpages/showgridscreen.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   _MainPageState createState() => _MainPageState();
 }

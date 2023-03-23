@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:mynephew/mainpage.dart';
 
 class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
+
   @override
   _LangingPageState createState() => _LangingPageState();
 }
