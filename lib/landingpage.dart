@@ -15,7 +15,7 @@ class _LangingPageState extends State<LandingPage>{
   @override
   void initState() {
     Timer(const Duration(seconds: 1), () {
-      Get.offAll(MainPage());
+      Get.offAll(const MainPage());
     });
 
     // TODO: implement initState
@@ -31,7 +31,7 @@ class _LangingPageState extends State<LandingPage>{
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Image.asset('image/landing.png', /*fit: BoxFit.fitWidth*/),
+            child: Image.asset('assets/image/landing.png', /*fit: BoxFit.fitWidth*/),
           ),
           const CircularProgressIndicator(),
         ],

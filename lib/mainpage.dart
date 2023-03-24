@@ -33,10 +33,10 @@ class _MainPageState extends State<MainPage>{
   ];
 
   List pages = [
-    HomeScreen(),
-    ShowGridScreen(),
-    MyLinkScreen(),
-    MyScreen(),
+    const HomeScreen(),
+    const ShowGridScreen(),
+    const MyLinkScreen(),
+    const MyScreen(),
   ];
 
   @override
