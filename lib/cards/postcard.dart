@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/flutter_launcher_icons_config.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PostCard extends StatefulWidget {
   int number;
@@ -12,6 +13,8 @@ class PostCard extends StatefulWidget {
 }
 
 class _PostCardState extends State<PostCard>{
+  PageController _controller = PageController();
+
   List<String> testImageList=[
     'https://shopping-phinf.pstatic.net/main_3483285/34832852040.20221107123843.jpg?type=f300',
     'https://shopping-phinf.pstatic.net/main_2601344/26013446300.20210925025303.jpg?type=f300',
@@ -48,8 +51,32 @@ class _PostCardState extends State<PostCard>{
               ],
             ),
           ),
-          Container(
-            child: Image.network(testImageList[Random().nextInt(5)]),
+          AspectRatio(
+            aspectRatio: Random().nextDouble()+Random().nextDouble(),
+            child: PageView(
+                controller: _controller,
+                children: [
+                  Container(
+                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
+                  ),
+                  Container(
+                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
+                  ),
+                  Container(
+                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
+                  ),
+                ],
+              ),
+          ),
+          SmoothPageIndicator(
+            controller: _controller,
+            count: 3,
+            effect: const WormEffect(
+              dotHeight: 8,
+              dotWidth: 8,
+              type: WormType.thin,
+              // strokeWidth: 5,
+            ),
           ),
           Container(
             height: 40,
