@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mynephew/mainpages/homescreen.dart';
 import 'package:mynephew/mainpages/mylinkscreen.dart';
 import 'package:mynephew/mainpages/myscreen.dart';
 import 'package:mynephew/mainpages/showgridscreen.dart';
+import 'package:mynephew/testpage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -43,7 +45,12 @@ class _MainPageState extends State<MainPage>{
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
-        title: const Text('떠혀니그램', style: TextStyle(fontFamily: 'NanumPenScript', fontSize: 30, color: Colors.black,),),
+        title: GestureDetector(
+          onTap: () {
+            Get.to(TestPage());
+          },
+          child: const Text('플루토 테스트그램', style: TextStyle(fontFamily: 'NanumPenScript', fontSize: 30, color: Colors.black,),),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
