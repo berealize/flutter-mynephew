@@ -38,7 +38,10 @@ dependencies:
   get: ^4.6.5
   flutter_launcher_icons: ^0.12.0
   smooth_page_indicator: ^1.0.1
-
+  cloud_firestore: ^4.4.5
+  firebase_core: ^2.8.0
+  json_annotation: ^4.8.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +53,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.12.0
+  json_serializable: ^6.6.1
+  build_runner: ^2.4.1
 
 flutter_icons:
   android: 'my_icon'

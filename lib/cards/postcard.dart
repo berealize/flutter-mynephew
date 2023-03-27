@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/flutter_launcher_icons_config.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PostCard extends StatefulWidget {
@@ -13,15 +14,28 @@ class PostCard extends StatefulWidget {
 }
 
 class _PostCardState extends State<PostCard>{
-  PageController _controller = PageController();
+  late int pageLength;
+  int currentPageIndex = 0;
+  final PageController _controller = PageController();
 
   List<String> testImageList=[
     'https://shopping-phinf.pstatic.net/main_3483285/34832852040.20221107123843.jpg?type=f300',
     'https://shopping-phinf.pstatic.net/main_2601344/26013446300.20210925025303.jpg?type=f300',
     'https://shopping-phinf.pstatic.net/main_8509321/85093216529.jpg?type=f300',
     'https://shopping-phinf.pstatic.net/main_3210375/32103751203.20220430105140.jpg?type=f300',
-    'https://shopping-phinf.pstatic.net/main_2403217/24032174005.20200904023919.jpg?type=f300'
+    'https://shopping-phinf.pstatic.net/main_2403217/24032174005.20200904023919.jpg?type=f300',
+    'https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3817901%2F38179017261.20230222203245.jpg&type=ff332_332',
+    'https://shopping-phinf.pstatic.net/main_3793587/37935877302.20230315012810.jpg?type=f300',
+    'https://shopping-phinf.pstatic.net/main_3568576/35685762326.20221107093402.jpg?type=f200',
+    'https://shopping-phinf.pstatic.net/main_3715362/37153622827.20230309030706.jpg?type=f200',
+    'https://shopping-phinf.pstatic.net/main_3873849/38738494419.20230318093910.jpg?type=f300',
   ];
+
+  @override
+  void initState() {
+    pageLength=3+Random().nextInt(10);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,54 +66,75 @@ class _PostCardState extends State<PostCard>{
             ),
           ),
           AspectRatio(
-            aspectRatio: Random().nextDouble()+Random().nextDouble(),
-            child: PageView(
-                controller: _controller,
-                children: [
-                  Container(
-                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
+            aspectRatio: 1,
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                PageView.builder(
+                  controller: _controller,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      child: Image.network(testImageList[Random().nextInt(10)], fit: BoxFit.contain,),
+                    );
+                  },
+                  itemCount: pageLength,
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPageIndex=value;
+                    });
+                  },
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(500),
                   ),
-                  Container(
-                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
-                  ),
-                  Container(
-                    child: Image.network(testImageList[Random().nextInt(5)], fit: BoxFit.cover,),
-                  ),
-                ],
-              ),
-          ),
-          SmoothPageIndicator(
-            controller: _controller,
-            count: 3,
-            effect: const WormEffect(
-              dotHeight: 8,
-              dotWidth: 8,
-              type: WormType.thin,
-              // strokeWidth: 5,
+                  child: Text('${currentPageIndex+1} / ${pageLength}', style: const TextStyle(color: Colors.white,),),
+                )
+              ],
             ),
           ),
+
           Container(
             height: 40,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Stack (
+              alignment: Alignment.center,
               children: [
-                Row(
+                 const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.favorite_border),
-                    SizedBox(width:7,),
-                    Icon(Icons.chat_outlined,),
-                    SizedBox(width:7,),
-                    Icon(Icons.send),
+                    Row(
+                      children: [
+                        Icon(Icons.favorite_border),
+                        SizedBox(width:7,),
+                        Icon(Icons.chat_outlined,),
+                        SizedBox(width:7,),
+                        Icon(Icons.send),
+                      ],
+                    ),
+
+                    Icon(Icons.bookmark_border),
                   ],
                 ),
-                SizedBox(width: 60, child: Text('indic'),),
-                Icon(Icons.bookmark_border),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: pageLength,
+                  effect: const WormEffect(
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    type: WormType.thin,
+                    strokeWidth: 5,
+                  ),
+                ),
               ],
             ),
           ),
+
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             height: 40,

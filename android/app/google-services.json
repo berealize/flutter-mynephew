@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "430921114159",
+    "project_id": "agibooks-f1f06",
+    "storage_bucket": "agibooks-f1f06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430921114159:android:2fb7438a02f5da41605cda",
+        "android_client_info": {
+          "package_name": "com.example.mynephew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430921114159-qj2odjaqj5u2fciiu7ksner9mitp8eru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA7op8vp-gv-nkKRLGVBGp-NSkbTUiofk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430921114159-qj2odjaqj5u2fciiu7ksner9mitp8eru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

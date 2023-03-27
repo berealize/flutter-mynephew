@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mynephew">
     <application
-        android:label="떠혀니그램"
+        android:label="플루토 테스트그램"
         android:name="${applicationName}"
         android:icon="@mipmap/my_icon">
         <activity
