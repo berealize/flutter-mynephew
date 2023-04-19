@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage>{
       appBar: AppBar(
         title: GestureDetector(
           onTap: () {
-            Get.to(TestPage());
+            Get.to(const TestPage());
           },
           child: const Text('플루토 테스트그램', style: TextStyle(fontFamily: 'NanumPenScript', fontSize: 30, color: Colors.black,),),
         ),

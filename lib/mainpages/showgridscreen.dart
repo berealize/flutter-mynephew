@@ -10,8 +10,6 @@ class ShowGridScreen extends StatefulWidget {
 class _ShowGridScreenState extends State<ShowGridScreen>{
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('그리드스크린입니다.'),
-    );
+    return const Text('그리드스크린입니다.');
   }
 }

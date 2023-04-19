@@ -1,7 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/flutter_launcher_icons_config.dart';
-import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PostCard extends StatefulWidget {
@@ -47,7 +45,7 @@ class _PostCardState extends State<PostCard>{
             height: 50,
             width: MediaQuery.of(context).size.width,
             color : Colors.white,
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:
               [
@@ -99,13 +97,13 @@ class _PostCardState extends State<PostCard>{
 
           Container(
             height: 40,
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
             child: Stack (
               alignment: Alignment.center,
               children: [
-                 const Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -121,6 +119,18 @@ class _PostCardState extends State<PostCard>{
                     Icon(Icons.bookmark_border),
                   ],
                 ),
+                /*
+                ScrollingPageIndicator(
+                  controller: _controller,
+                  itemCount: pageLength,
+                  dotColor: Colors.grey,
+                  dotSelectedColor: Colors.white,
+                  dotSize: 8,
+                  dotSelectedSize: 8,
+                  dotSpacing: 12,
+                  orientation: Axis.horizontal,
+                ),
+                 */
                 SmoothPageIndicator(
                   controller: _controller,
                   count: pageLength,
@@ -140,7 +150,7 @@ class _PostCardState extends State<PostCard>{
             height: 40,
             width: MediaQuery.of(context).size.width,
             color : Colors.white,
-            child: const Row(
+            child:  Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children:
               [
@@ -159,7 +169,7 @@ class _PostCardState extends State<PostCard>{
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
             color : Colors.white,
-            child: const Column(
+            child:  Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children:
               [
@@ -182,7 +192,7 @@ class _PostCardState extends State<PostCard>{
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
             color : Colors.white,
-            child: const Column(
+            child:  Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children:
               [

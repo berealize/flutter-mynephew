@@ -10,8 +10,6 @@ class MyScreen extends StatefulWidget {
 class _MyScreenState extends State<MyScreen>{
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('마이스크린입니다.'),
-    );
+    return const Text('마이스크린입니다.');
   }
 }
